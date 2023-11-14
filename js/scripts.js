@@ -6,6 +6,8 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 const shopListShow= document.querySelector(".showList");
+const totalPrice = document.querySelector(".badge");
+
 let pList = '';
 products.forEach((val, index) => {
     pList += `
@@ -48,13 +50,28 @@ function addToCart(index){
 
 }
 
+function remove(index){
+    shopList.splice(index,1)
+
+    showListShop();
+
+}
+
+
 function showListShop() {
     let helper;
     shopList.forEach((value,index) =>{
-        helper+= `<li class="col-8" style="heghit:30px; float:right;"><span ><button></button></span><img style="height:60px" src="${value.image}"/><span>${value.price}" | "${value.title} </span></li>`
+        helper+= `<li  style="heghit:30px; "><span><button class="btn btn-danger" onclick="remove(${index})">delete</button></span><img style="height:60px" src="${value.image}"/><span>${value.price}" | "${value.title} </span></li>`
 
 
     })
     shopListShow.innerHTML = helper;
 
 }
+// function showPrice(index){
+//     // let counter =0;
+    
+    
+
+
+// }
