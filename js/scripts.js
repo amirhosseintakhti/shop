@@ -47,6 +47,7 @@ function addToCart(index){
 
     })
     showListShop();
+    showPrice();
 
 }
 
@@ -54,6 +55,9 @@ function remove(index){
     shopList.splice(index,1)
 
     showListShop();
+    showPrice();
+    
+ 
 
 }
 
@@ -68,10 +72,11 @@ function showListShop() {
     shopListShow.innerHTML = helper;
 
 }
-// function showPrice(index){
-//     // let counter =0;
-    
-    
-
-
-// }
+function showPrice(){
+    let counter = 0;
+shopList.forEach(item =>{
+    counter += parseInt(item.price, 10)
+})
+totalPrice.innerHTML = counter;
+}
+showPrice();
