@@ -63,7 +63,7 @@ function remove(index){
 
 
 function showListShop() {
-    let helper;
+    let helper = " ";
     shopList.forEach((value,index) =>{
         helper+= `<li  style="heghit:30px; "><span><button class="btn btn-danger" onclick="remove(${index})">delete</button></span><img style="height:60px" src="${value.image}"/><span>${value.price}" | "${value.title} </span></li>`
 
@@ -75,7 +75,8 @@ function showListShop() {
 function showPrice(){
     let counter = 0;
 shopList.forEach(item =>{
-    counter += parseInt(item.price, 10)
+    counter += +item.price.replaceAll(',', '')
+
 })
 totalPrice.innerHTML = counter;
 }
